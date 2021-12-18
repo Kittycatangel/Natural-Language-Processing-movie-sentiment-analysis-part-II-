@@ -1,4 +1,4 @@
-# Natural-Language-Processing-movie-sentiment-analysis-part-II
+# Natural Language Processing movie sentiment analysis partII
 
 # Data
 The data used for training can be found in  Natural-Language-Processing-movie-sentiment-analysis-part-I repositority. The python cod efor this project can be found in this repository Natural-Language-Processing-movie-sentiment-analysis-part-II.
