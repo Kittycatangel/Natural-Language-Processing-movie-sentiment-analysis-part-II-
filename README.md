@@ -1,6 +1,6 @@
 # Natural-Language-Processing-movie-sentiment-analysis-part-II
 
-Let's see other options of optimizations:
+Let's see other options of optimizations for our movie sentiment analysis:
 
 # Stop words
 Another way that we can get rid of uninformative words is by discarding words that are too frequent to be informative. There are two main approaches: using a language-specific list of stopwords, or discarding words that appear too frequently. scikitlearn has a built-in list of English stopwords in the feature_extraction.text module.
@@ -14,3 +14,11 @@ inally, let’s look in a bit more detail into what our logistic regression mode
 
 ![image](https://user-images.githubusercontent.com/53411455/146652195-00632de3-46e3-4798-b504-14bb0386f422.png)
 
+# Bag-of-Words with More Than One Word (n-Grams)
+One of the main disadvantages of using a bag-of-words representation is that word order is completely discarded. Therefore, the two strings “it’s bad, not good at all” and “it’s good, not bad at all” have exactly the same representation, even though the meanings are inverted. Putting “not” in front of a word is only one example (if an extreme one) of how context matters. Fortunately, there is a way of capturing context when using a bag-of-words representation, by not only considering the counts of single tokens, but also the counts of pairs or triplets of tokens that appear next to each other. Pairs of tokens are known as bigrams, triplets of tokens are known as trigrams, and more generally sequences of tokens are known as n-grams. We can change the range of tokens that are considered as features by changing the ngram_range parameter of CountVectorizer or TfidfVectorizer. The ngram_range parameter is a tuple, consisting of the minimum length and the maximum length of the sequences of tokens that are considered.
+
+ The TfidfVectorizer on the IMDb movie review data and find the best setting of n-gram range using a grid search: Best cross-validation score: 0.91
+ 
+ To understand better how the model improved, we can visualize the important coefficient for the best model, which includes unigrams, bigrams, and trigrams.
+ 
+ ![image](https://user-images.githubusercontent.com/53411455/146652345-4cd02eb2-fcb1-42be-afc6-6b4eed5887f1.png)
